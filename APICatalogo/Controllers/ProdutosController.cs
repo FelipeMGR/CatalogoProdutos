@@ -34,5 +34,20 @@ namespace APICatalogo.Controllers
             }
             return produtos;
         }
+
+        [HttpPost]
+
+        public ActionResult Post(Produtos produto)
+        {
+            var produtos = _context.Produtos.Add(produto);
+            _context.SaveChanges();
+
+            if(produto is null)
+            {
+                return BadRequest("Requisição inválida. Tente novamente.");
+            }
+
+            return new CreatedAtRouteResult("ObterProduto",new {id = produto.Id} , produto);
+        }
     }
 }
