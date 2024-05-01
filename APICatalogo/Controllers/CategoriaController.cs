@@ -17,6 +17,13 @@ namespace APICatalogo.Controllers
             _context = context;
         }
 
+        [HttpGet("produtos")]
+       
+        public ActionResult<IEnumerable<Categoria>> GetCategoriaProduto()
+        {
+            return _context.Categoria.Include(p => p.Produtos).ToList();
+        } 
+
         [HttpGet]
 
         public ActionResult<IEnumerable<Categoria>> Get()
@@ -67,6 +74,23 @@ namespace APICatalogo.Controllers
             _context.SaveChanges();
 
             return Ok(categoriaPut);
+        }
+
+        [HttpDelete]
+
+        public ActionResult Delete(int id)
+        {
+            var produtoDelete = _context.Categoria.FirstOrDefault(p => p.CategoriaId == id);
+
+            if (produtoDelete is null)
+            {
+                return NotFound("Categoria não encontrada");
+            }
+
+            _context.Categoria.Remove(produtoDelete);
+            _context.SaveChanges();
+
+            return Ok(produtoDelete);
         }
     }
 }

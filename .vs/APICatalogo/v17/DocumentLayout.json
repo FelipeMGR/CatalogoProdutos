@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\asp.net\\section03\\apicatalogo\\apicatalogo\\models\\produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\models\\produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\asp.net\\section03\\apicatalogo\\apicatalogo\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\asp.net\\section03\\apicatalogo\\apicatalogo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\asp.net\\section03\\apicatalogo\\apicatalogo\\controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\asp.net\\section03\\apicatalogo\\apicatalogo\\models\\produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\models\\produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\asp.net\\section03\\apicatalogo\\apicatalogo\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\asp.net\\section03\\apicatalogo\\apicatalogo\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\asp.net\\section03\\apicatalogo\\apicatalogo\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,30 +34,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\Program.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Program.cs",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\Program.cs",
+              "RelativeToolTip": "APICatalogo\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T21:51:22.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CategoriaController.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\Controllers\\CategoriaController.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Controllers\\CategoriaController.cs",
               "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\Controllers\\CategoriaController.cs",
               "RelativeToolTip": "APICatalogo\\Controllers\\CategoriaController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAmwDkAAAA9AAAA",
+              "ViewState": "AQIAAEAAAAAAAAAAAAA3wFwAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-31T23:40:36.146Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ProdutosController.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\Controllers\\ProdutosController.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Controllers\\ProdutosController.cs",
               "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\Controllers\\ProdutosController.cs",
               "RelativeToolTip": "APICatalogo\\Controllers\\ProdutosController.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAAAEQAAAAJAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAAowFcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-25T02:47:41.252Z",
               "EditorCaption": ""
@@ -68,24 +85,25 @@
               "RelativeToolTip": "APICatalogo\\Context\\AppDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T03:05:22.324Z"
+              "WhenOpened": "2024-03-21T03:05:22.324Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Produtos.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\Models\\Produtos.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Models\\Produtos.cs",
               "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\Models\\Produtos.cs",
               "RelativeToolTip": "APICatalogo\\Models\\Produtos.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAABoAAAAqAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB8AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-13T23:53:45.324Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Categoria.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\Models\\Categoria.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Models\\Categoria.cs",
@@ -93,8 +111,7 @@
               "RelativeToolTip": "APICatalogo\\Models\\Categoria.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABUAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-13T23:45:26.187Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-13T23:45:26.187Z"
             }
           ]
         }
