@@ -19,7 +19,11 @@ namespace APICatalogo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Produtos>> Get()
         {
-            var produtos = _context.Produtos.ToList();
+            var produtos = _context.Produtos.AsNoTracking().Take(4).ToList(); 
+            //Não é recomendável fazer uma consulta de todos os produtos de uma única vez.
+            //Devido a isso, é usando o filtro Take() para especificar quantos produtos devemos retornar na consulta.
+            //Utilizamos o método AsNoTracking() para que a consulta não seja rastreada pelo compilador, fazendo com que ela não seja armazenada em cache, 
+            //deixando o código com um melhor desempenho.
             if(produtos is null)
             {
                 return NotFound("Desculpe, não enconstramos o produto...");
@@ -30,7 +34,7 @@ namespace APICatalogo.Controllers
         [HttpGet("{id:int}", Name="ObterProduto")]
         public ActionResult<Produtos> Get(int id)
         {
-            var produtos = _context.Produtos.FirstOrDefault(p => p.Id == id);
+            var produtos = _context.Produtos.AsNoTracking().FirstOrDefault(p => p.Id == id);
             if (produtos is null)
             {
                 return NotFound("Desculpe, não enconstramos o produto...");

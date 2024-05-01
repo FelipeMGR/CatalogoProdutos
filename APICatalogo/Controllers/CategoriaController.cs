@@ -21,21 +21,23 @@ namespace APICatalogo.Controllers
        
         public ActionResult<IEnumerable<Categoria>> GetCategoriaProduto()
         {
-            return _context.Categoria.Include(p => p.Produtos).ToList();
+            return _context.Categoria.Include(p => p.Produtos).Where(p => p.CategoriaId <= 4).ToList();
+            //Não é recomendável incluir todos os produtos de uma vez, visto que, em cenários de maior quantidade, isso pode causar problemas de desempenho.
+            //Nesses casos, o ideal é fazer um filtro antes de fazer a inclusão, colocando somente aquilo que realmente importa.
         } 
 
         [HttpGet]
 
         public ActionResult<IEnumerable<Categoria>> Get()
         {
-            return _context.Categoria.ToList();
+            return _context.Categoria.AsNoTracking().ToList();
         }
 
         [HttpGet("{id:int}", Name = "ObterCategoria")]
 
         public ActionResult<Categoria> Get(int id)
         {
-            var produto = _context.Categoria.FirstOrDefault(p => p.CategoriaId == id);
+            var produto = _context.Categoria.AsNoTracking().FirstOrDefault(p => p.CategoriaId == id);
             if (produto is null)
             {
                 return NotFound("Produto não encontrado.");
