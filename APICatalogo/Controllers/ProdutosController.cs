@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using APICatalogo.Context;
 using APICatalogo.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace APICatalogo.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class ProdutosController : Controller
     {
         private readonly AppDbContext _context;
@@ -24,7 +27,7 @@ namespace APICatalogo.Controllers
             return produtos;
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:int}", Name="ObterProduto")]
         public ActionResult<Produtos> Get(int id)
         {
             var produtos = _context.Produtos.FirstOrDefault(p => p.Id == id);
@@ -36,18 +39,49 @@ namespace APICatalogo.Controllers
         }
 
         [HttpPost]
-
-        public ActionResult Post(Produtos produto)
+        public ActionResult Post(Produtos produtoPost)
         {
-            var produtos = _context.Produtos.Add(produto);
+            _context.Produtos.Add(produtoPost);
             _context.SaveChanges();
 
-            if(produto is null)
+            if(produtoPost is null)
             {
                 return BadRequest("Requisição inválida. Tente novamente.");
             }
 
-            return new CreatedAtRouteResult("ObterProduto",new {id = produto.Id} , produto);
+            return new CreatedAtRouteResult("ObterProduto", new {id = produtoPost.Id}, produtoPost);
+        }
+
+        [HttpPut("{identification:int}")]
+
+        public ActionResult Put(int identification, Produtos produtoPut)
+        {
+
+            if (identification != produtoPut.Id)
+            {
+                return BadRequest("Requisição inválida.");
+            }
+
+            _context.Entry(produtoPut).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return Ok(produtoPut);
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            var produtosDelete = _context.Produtos.FirstOrDefault(p => p.Id == id);
+
+            if (produtosDelete is null)
+            {
+                return NotFound("Produto não encontrado, verifique o ID informado");
+            }
+
+            _context.Produtos.Remove(produtosDelete);
+            _context.SaveChanges();
+
+            return Ok(produtosDelete);
         }
     }
 }

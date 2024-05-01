@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section 03\\APICatalogo\\APICatalogo\\APICatalogo.csproj": {}
+    "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\APICatalogo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section 03\\APICatalogo\\APICatalogo\\APICatalogo.csproj": {
+    "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\APICatalogo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section 03\\APICatalogo\\APICatalogo\\APICatalogo.csproj",
+        "projectUniqueName": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\APICatalogo.csproj",
         "projectName": "APICatalogo",
-        "projectPath": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section 03\\APICatalogo\\APICatalogo\\APICatalogo.csproj",
+        "projectPath": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\APICatalogo.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section 03\\APICatalogo\\APICatalogo\\obj\\",
+        "outputPath": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
