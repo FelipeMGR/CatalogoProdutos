@@ -1,4 +1,6 @@
 using APICatalogo.Context;
+using APICatalogo.Filters;
+using APICatalogo.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -13,12 +15,18 @@ builder.Services.AddSwaggerGen();
 
 var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
+builder.Services.AddScoped<ApiLoggingFilter>();
+builder.Services.AddControllers(options => options.Filters.Add(typeof(ApiExceptionFilter)));
 builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySqlConnection,ServerVersion.AutoDetect(mySqlConnection)));
-builder.Services.AddControllers().
+//este comando configura o middleware de exceções seja habilitado. Ele será usado para exceções de nível controlador/action.
+builder.Services.AddControllers(options => options.Filters.Add(typeof(ApiExceptionFilter))).
     AddJsonOptions(
     options => 
     options.JsonSerializerOptions.ReferenceHandler = 
     ReferenceHandler.IgnoreCycles);
+builder.Services.AddScoped<ICategoriaRepository, CategoriasRepository>();
+builder.Services.AddScoped<IProdutosRepository, ProdutosRepository>();
+
 
 var app = builder.Build();
 

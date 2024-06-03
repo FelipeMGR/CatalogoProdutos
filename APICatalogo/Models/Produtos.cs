@@ -2,21 +2,20 @@
 using System.ComponentModel.DataAnnotations;
 using APICatalogo.Models;
 using System.Text.Json.Serialization;
+using APICatalogo.Validations;
 
 namespace APICatalogo.Models;
 
-[Table("Produtos")]
 public class Produtos
 {
     [Key]
     public int Id { get; set; }
 
     [Required]
-    [StringLength(80)]
+    [NameValidation]
     public string? Nome { get; set; }
 
     [Required]
-    [StringLength(300)]
     public string? Descricao { get; set; }
 
     [Required]
@@ -24,7 +23,6 @@ public class Produtos
     public decimal Preco { get; set; }
 
     [Required]
-    [StringLength(300)]
     public string? ImagemUrl { get; set; }
     public float Estoque { get; set; }
     public DateTime DataCadastro { get; set; }
