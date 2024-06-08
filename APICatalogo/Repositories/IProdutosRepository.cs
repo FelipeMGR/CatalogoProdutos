@@ -2,12 +2,8 @@
 
 namespace APICatalogo.Repositories
 {
-    public interface IProdutosRepository
+    public interface IProdutosRepository : IRepository<Produtos>
     {
-        IQueryable<Produtos> GetAll();
-        Produtos Get(int id);
-        Produtos Create(Produtos produtos);
-        bool Update(Produtos produtos);
-        bool Delete(int id);
+        IEnumerable<Produtos> GetProdutosPorCategoria(int? id);
     }
 }

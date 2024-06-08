@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w36LfhijTle29T5sgR07pflLJtj/njTMrLBKVGH4BSFwo7baaup+8cHLWTTjetbv2uRZis3YG3QtqF8WK29ivQ==",
+  "dgSpecHash": "ftE3FIGaSsM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\felip\\OneDrive\\Documents\\ASP.Net\\Section03\\APICatalogo\\APICatalogo\\APICatalogo.csproj",
+  "projectFilePath": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\APICatalogo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\felip\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\felip\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.3\\microsoft.aspnetcore.openapi.8.0.3.nupkg.sha512",

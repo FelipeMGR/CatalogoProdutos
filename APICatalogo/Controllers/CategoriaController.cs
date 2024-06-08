@@ -24,14 +24,6 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet("produtos")]
-       
-        public ActionResult<IEnumerable<Categoria>> GetCategoriaProduto()
-        {
-            var categorias = _repository.GetCategoriaProdutos();
-            return Ok(categorias);
-            //Não é recomendável incluir todos os produtos de uma vez, visto que, em cenários de maior quantidade, isso pode causar problemas de desempenho.
-            //Nesses casos, o ideal é fazer um filtro antes de fazer a inclusão, colocando somente aquilo que realmente importa.
-        } 
 
         [HttpGet]
         public ActionResult<IEnumerable<Categoria>> Get()
@@ -77,7 +69,7 @@ namespace APICatalogo.Controllers
 
             if (identification != categoriaPut.CategoriaId)
             {
-                _logger.LogWarning("Não é possível encontrar este objeto.");
+                _logger.LogWarning("Não foi possível encontrar este objeto.");
                 return BadRequest("Requisição inválida.");
             }
 

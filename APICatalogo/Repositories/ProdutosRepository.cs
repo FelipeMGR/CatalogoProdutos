@@ -1,63 +1,22 @@
 ﻿using APICatalogo.Context;
 using APICatalogo.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace APICatalogo.Repositories
 {
-    public class ProdutosRepository : IProdutosRepository
+    public class ProdutosRepository : Repository<Produtos>, IProdutosRepository
     {
 
         readonly AppDbContext _context;
 
-        public ProdutosRepository(AppDbContext context)
+        public ProdutosRepository(AppDbContext context) : base(context)
         {
-            _context = context;
         }
 
-        public IQueryable<Produtos> GetAll()
+        public IEnumerable<Produtos> GetProdutosPorCategoria(int? id)
         {
-            return _context.Produtos;
-        }
-        public Produtos Get(int id)
-        {
-            var prod = _context.Produtos.FirstOrDefault(p => p.Id == id);
-            return prod;
-        }
-        public Produtos Create(Produtos produtos)
-        {
-            if (produtos is null)
-                throw new ArgumentNullException(nameof(produtos));
-
-            _context.Produtos.Add(produtos);
-            _context.SaveChanges();
-            return produtos;
-        }
-        public bool Update(Produtos produtos)
-        {
-            if (produtos is null)
-                throw new ArgumentNullException(nameof(produtos));
-
-            if(_context.Produtos.Any(p => p.Id == produtos.Id))
-            {
-                _context.Produtos.Update(produtos);
-                _context.SaveChanges();
-                return true;
-            }
-            return false;
-        }
-        public bool Delete(int id)
-        {
-            var prod = _context.Produtos.Find(id);
-
-            if (prod is null)
-            {
-                return false;
-            }
-
-            _context.Produtos.Remove(prod);
-            _context.SaveChanges();
-            return true;
-                
+            return GetAll().Where(x => x.Id == id);
         }
     }
 }
