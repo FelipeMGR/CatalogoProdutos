@@ -27,7 +27,7 @@ builder.Services.AddControllers(options => options.Filters.Add(typeof(ApiExcepti
 builder.Services.AddScoped<ICategoriaRepository, CategoriasRepository>();
 builder.Services.AddScoped<IProdutosRepository, ProdutosRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

@@ -3,28 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\repositories\\produtosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\repositories\\produtosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\validations\\namevalidatiteattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\validations\\namevalidatiteattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\repositories\\iprodutosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\repositories\\iprodutosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\models\\produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\models\\produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\repositories\\icategoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\repositories\\icategoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\repositories\\categoriasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\repositories\\categoriasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\validations\\namevalidatiteattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\validations\\namevalidatiteattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2455A535-203A-430A-89F0-FB32EDA838DA}|APICatalogo\\APICatalogo.csproj|c:\\users\\felip\\onedrive\\documents\\macoratti\\apicatalogo\\filters\\apiexceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,20 +74,77 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Produtos.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Models\\Produtos.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Models\\Produtos.cs",
               "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Models\\Produtos.cs",
               "RelativeToolTip": "APICatalogo\\Models\\Produtos.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAATAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-02T21:28:46.225Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProdutosRepository.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\ProdutosRepository.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Repositories\\ProdutosRepository.cs",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\ProdutosRepository.cs",
+              "RelativeToolTip": "APICatalogo\\Repositories\\ProdutosRepository.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAqwBIAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T03:11:10.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ICategoriaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\ICategoriaRepository.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Repositories\\ICategoriaRepository.cs",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\ICategoriaRepository.cs",
+              "RelativeToolTip": "APICatalogo\\Repositories\\ICategoriaRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T01:21:20.093Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "IProdutosRepository.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\IProdutosRepository.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Repositories\\IProdutosRepository.cs",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\IProdutosRepository.cs",
+              "RelativeToolTip": "APICatalogo\\Repositories\\IProdutosRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T01:21:01.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Repositories\\Repository.cs",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\Repository.cs",
+              "RelativeToolTip": "APICatalogo\\Repositories\\Repository.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAgwBwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T23:01:12.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "IRepository.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\IRepository.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Repositories\\IRepository.cs",
@@ -72,36 +157,69 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "CategoriaController.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Controllers\\CategoriaController.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Controllers\\CategoriaController.cs",
               "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Controllers\\CategoriaController.cs",
               "RelativeToolTip": "APICatalogo\\Controllers\\CategoriaController.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAcwE8AAAArAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAawBcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-05T21:15:56.473Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Program.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Program.cs",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Program.cs",
+              "RelativeToolTip": "APICatalogo\\Program.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAADgvxMAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T21:51:22.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CategoriasRepository.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\CategoriasRepository.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Repositories\\CategoriasRepository.cs",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Repositories\\CategoriasRepository.cs",
+              "RelativeToolTip": "APICatalogo\\Repositories\\CategoriasRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T01:22:38.009Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "NameValidatiteAttribute.cs",
-              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Validations\\NameValidatiteAttribute.cs",
-              "RelativeDocumentMoniker": "APICatalogo\\Validations\\NameValidatiteAttribute.cs",
-              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Validations\\NameValidatiteAttribute.cs",
-              "RelativeToolTip": "APICatalogo\\Validations\\NameValidatiteAttribute.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "ProdutosController.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Controllers\\ProdutosController.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Controllers\\ProdutosController.cs",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Controllers\\ProdutosController.cs",
+              "RelativeToolTip": "APICatalogo\\Controllers\\ProdutosController.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAlwB8AAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T21:29:50.679Z"
+              "WhenOpened": "2024-06-09T00:04:00.91Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\appsettings.json",
+              "RelativeDocumentMoniker": "APICatalogo\\appsettings.json",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\appsettings.json",
+              "RelativeToolTip": "APICatalogo\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-09T00:08:16.889Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Categoria.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Models\\Categoria.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Models\\Categoria.cs",
@@ -113,7 +231,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
+              "Title": "NameValidatiteAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Validations\\NameValidatiteAttribute.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Validations\\NameValidatiteAttribute.cs",
+              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Validations\\NameValidatiteAttribute.cs",
+              "RelativeToolTip": "APICatalogo\\Validations\\NameValidatiteAttribute.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T21:29:50.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "ApiExceptionFilter.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Filters\\ApiExceptionFilter.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Filters\\ApiExceptionFilter.cs",
@@ -125,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "ApiLoggingFilter.cs",
               "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Filters\\ApiLoggingFilter.cs",
               "RelativeDocumentMoniker": "APICatalogo\\Filters\\ApiLoggingFilter.cs",
@@ -134,19 +264,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-02T00:50:25.346Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Program.cs",
-              "RelativeDocumentMoniker": "APICatalogo\\Program.cs",
-              "ToolTip": "C:\\Users\\felip\\OneDrive\\Documents\\Macoratti\\APICatalogo\\Program.cs",
-              "RelativeToolTip": "APICatalogo\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T21:51:22.615Z",
-              "EditorCaption": ""
             }
           ]
         }

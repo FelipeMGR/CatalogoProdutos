@@ -14,21 +14,19 @@ namespace APICatalogo.Controllers
     [ApiController]
     public class CategoriaController : ControllerBase
     {
-        private readonly ICategoriaRepository _repository;
+        private readonly IUnitOfWork _uof;
         private readonly ILogger<CategoriaController> _logger;
 
-        public CategoriaController(ICategoriaRepository repository, ILogger<CategoriaController> logger)
+        public CategoriaController(ILogger<CategoriaController> logger, IUnitOfWork uof)
         {
-            _repository = repository;
             _logger = logger;
+            _uof = uof;
         }
-
-        [HttpGet("produtos")]
 
         [HttpGet]
         public ActionResult<IEnumerable<Categoria>> Get()
         {
-            var cat = _repository.GetAll();
+            var cat = _uof.CategoriaRepository.GetAll();
             return Ok(cat);
         }
 
@@ -36,8 +34,8 @@ namespace APICatalogo.Controllers
 
         public ActionResult<Categoria> Get(int id)
         {
-            
-            var categoria = _repository.Get(id);
+
+            var categoria = _uof.CategoriaRepository.Get(c => c.CategoriaId == id);
 
             if (categoria is null)
             {
@@ -50,14 +48,14 @@ namespace APICatalogo.Controllers
         [HttpPost]
         public ActionResult Post(Categoria categoria)
         {
-            var categoriaNova = _repository.Create(categoria);
+            var categoriaNova = _uof.CategoriaRepository.Create(categoria);
+            _uof.Commit();
 
             if (categoria is null)
             {
                 _logger.LogWarning("Requisição inválida.");
                 return BadRequest("Requisição inválida");
             }
-
 
             return new CreatedAtRouteResult("ObterCategoria", new { id = categoriaNova.CategoriaId }, categoriaNova);
         }
@@ -73,21 +71,22 @@ namespace APICatalogo.Controllers
                 return BadRequest("Requisição inválida.");
             }
 
-            var update = _repository.Update(categoriaPut);
+            var update = _uof.CategoriaRepository.Update(categoriaPut);
+            _uof.Commit();
             return Ok(update);
         }
 
         [HttpDelete]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Categoria categoria)
         {
-            var produtoDelete = _repository.Delete(id);
+            var produtoDelete = _uof.CategoriaRepository.Delete(categoria);
 
-            if (id != produtoDelete.CategoriaId)
+            if (categoria is null)
             {
-                _logger.LogWarning($"Categoria de Id {id} n]ao encontrada.");
-                return NotFound($"Categoria de Id {id} n]ao encontrada.");
+                _logger.LogWarning($"Categoria não encontrada.");
+                return NotFound($"Categoria não encontrada.");
             }
-
+            _uof.Commit();
             return Ok(produtoDelete);
         }
     }
