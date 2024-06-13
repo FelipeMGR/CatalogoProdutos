@@ -1,4 +1,5 @@
 using APICatalogo.Context;
+using APICatalogo.DTO_s.Mapping;
 using APICatalogo.Filters;
 using APICatalogo.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,7 @@ builder.Services.AddScoped<ICategoriaRepository, CategoriasRepository>();
 builder.Services.AddScoped<IProdutosRepository, ProdutosRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddAutoMapper(typeof(ProdutosDTOMappingExtension));
 
 var app = builder.Build();
 

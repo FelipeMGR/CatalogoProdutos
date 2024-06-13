@@ -14,11 +14,9 @@ public class Categoria
 
     [Key]
     public int CategoriaId { get; set; }
-    
     [Required]
     [NameValidation]
     public string? Nome { get; set; }
-
     [Required]
     public string? ImagemUrl { get; set; }
     [JsonIgnore]

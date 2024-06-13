@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using APICatalogo.DTO_s;
 
 namespace APICatalogo.Controllers
 {
@@ -24,15 +25,18 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Categoria>> Get()
+        public ActionResult<IEnumerable<CategoriaDTO>> Get()
         {
             var cat = _uof.CategoriaRepository.GetAll();
-            return Ok(cat);
+            if (cat is null)
+                return BadRequest("Categoria n]ao encontrada.");
+          
+            var categorias = cat.ToEnumrableDTO();
+            return Ok(categorias);
         }
 
         [HttpGet("{id:int}", Name = "ObterCategoria")]
-
-        public ActionResult<Categoria> Get(int id)
+        public ActionResult<CategoriaDTO> Get(int id)
         {
 
             var categoria = _uof.CategoriaRepository.Get(c => c.CategoriaId == id);
@@ -42,27 +46,30 @@ namespace APICatalogo.Controllers
                 _logger.LogWarning($"Categoria de Id {id} não encontrada");
                 return NotFound($"Categoria de Id {id} não encontrada");
             }
-            return Ok(categoria);
+
+            var categoriaDto = categoria.ToCategoriaDTO();
+            return Ok(categoriaDto);
         }
 
         [HttpPost]
-        public ActionResult Post(Categoria categoria)
+        public ActionResult<CategoriaDTO> Post(CategoriaDTO categoriaDto)
         {
-            var categoriaNova = _uof.CategoriaRepository.Create(categoria);
-            _uof.Commit();
-
-            if (categoria is null)
+            if (categoriaDto is null)
             {
                 _logger.LogWarning("Requisição inválida.");
                 return BadRequest("Requisição inválida");
             }
-
-            return new CreatedAtRouteResult("ObterCategoria", new { id = categoriaNova.CategoriaId }, categoriaNova);
+            var categoria = categoriaDto.ToCategoria();
+            //cria a nova categoria usando como base os dados passados na categoriaDTO, e que foram convertidos em Categoria anteriormente.
+            var categoriaNova = _uof.CategoriaRepository.Create(categoria);
+            _uof.Commit();
+            var novaCategoria = categoriaNova.ToCategoriaDTO();
+            return new CreatedAtRouteResult("ObterCategoria", new { id = novaCategoria.CategoriaId }, novaCategoria);
         }
 
 
         [HttpPut("{identification:int}")]
-        public ActionResult Put(int identification, Categoria categoriaPut)
+        public ActionResult<CategoriaDTO> Put(int identification, CategoriaDTO categoriaPut)
         {
 
             if (identification != categoriaPut.CategoriaId)
@@ -70,24 +77,29 @@ namespace APICatalogo.Controllers
                 _logger.LogWarning("Não foi possível encontrar este objeto.");
                 return BadRequest("Requisição inválida.");
             }
+            var categoriaUpdate = categoriaPut.ToCategoria();
 
-            var update = _uof.CategoriaRepository.Update(categoriaPut);
+            var update = _uof.CategoriaRepository.Update(categoriaUpdate);
             _uof.Commit();
-            return Ok(update);
+
+            var atualizada = categoriaUpdate.ToCategoriaDTO();
+            return Ok(atualizada);
         }
 
         [HttpDelete]
-        public ActionResult Delete(Categoria categoria)
+        public ActionResult<CategoriaDTO> Delete(CategoriaDTO categoria)
         {
-            var produtoDelete = _uof.CategoriaRepository.Delete(categoria);
-
             if (categoria is null)
             {
                 _logger.LogWarning($"Categoria não encontrada.");
                 return NotFound($"Categoria não encontrada.");
             }
+            var categoriaExcluida = categoria.ToCategoria();
+            var produtoDelete = _uof.CategoriaRepository.Delete(categoriaExcluida);
             _uof.Commit();
-            return Ok(produtoDelete);
+
+            var categoriaExcluidaDTO = produtoDelete.ToCategoriaDTO();
+            return Ok(categoriaExcluidaDTO);
         }
     }
 }

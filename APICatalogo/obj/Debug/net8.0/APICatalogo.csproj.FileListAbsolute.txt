@@ -315,3 +315,4 @@ C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\obj\Debug\net8.0\scopedc
 C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\obj\Debug\net8.0\APICatal.C7776A93.Up2Date
 C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\obj\Debug\net8.0\APICatalogo.genruntimeconfig.cache
 C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\obj\Debug\net8.0\ref\APICatalogo.dll
+C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\bin\Debug\net8.0\AutoMapper.dll
