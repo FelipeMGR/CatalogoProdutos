@@ -7,6 +7,7 @@ using APICatalogo.Repositories;
 using APICatalogo.DTO_s;
 using APICatalogo.DTO_s.Mapping;
 using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace APICatalogo.Controllers
 {
@@ -56,7 +57,7 @@ namespace APICatalogo.Controllers
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public ActionResult<ProdutosDTO> Get(int id)
         {
-            var produtos = _uof.ProdutosRepository.Get(c=> c.Id == id);
+            var produtos = _uof.ProdutosRepository.Get(c => c.Id == id);
             if (produtos is null)
             {
                 _logger.LogWarning("Produto não encontrado.");
@@ -65,7 +66,30 @@ namespace APICatalogo.Controllers
 
             var prod = _mapper.Map<ProdutosDTO>(produtos);
             return Ok(prod);
-            
+
+        }
+        [HttpPatch("{id}/PartialUpdate")]
+        public ActionResult<ProdutosDTO> Patch(int id, JsonPatchDocument<ProdutosDTOUpdateRequest> patchDocument)
+        {
+            var produto = _uof.ProdutosRepository.Get(c => c.Id == id);
+            if (patchDocument is null)
+            {
+                return BadRequest("Produto não pode ser nulo.");
+            }
+
+            var produtoUpdateRequestDTO = _mapper.Map<ProdutosDTOUpdateRequest>(produto);
+
+            patchDocument.ApplyTo(produtoUpdateRequestDTO, ModelState);
+
+            if(!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+             _mapper.Map<Produtos>(produtoUpdateRequestDTO);
+            _uof.ProdutosRepository.Update(produto);
+            _uof.Commit();
+
+            return Ok(_mapper.Map<ProdutosDTO>(produto));
         }
 
         [HttpPost]

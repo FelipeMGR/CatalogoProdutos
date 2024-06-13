@@ -8,6 +8,8 @@ namespace APICatalogo.DTO_s.Mapping
         public ProdutosDTOMappingExtension()
         {
             CreateMap<Produtos, ProdutosDTO>().ReverseMap();
+            CreateMap<Produtos, ProdutosDTOUpdateRequest>().ReverseMap();
+            CreateMap<Produtos, ProdutoDTOUpdateResponse>().ReverseMap();
         }
     }
 }

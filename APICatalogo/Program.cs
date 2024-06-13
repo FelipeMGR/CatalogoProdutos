@@ -22,9 +22,9 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySqlCon
 //este comando configura o middleware de exceções seja habilitado. Ele será usado para exceções de nível controlador/action.
 builder.Services.AddControllers(options => options.Filters.Add(typeof(ApiExceptionFilter))).
     AddJsonOptions(
-    options => 
-    options.JsonSerializerOptions.ReferenceHandler = 
-    ReferenceHandler.IgnoreCycles);
+    options =>
+    options.JsonSerializerOptions.ReferenceHandler =
+    ReferenceHandler.IgnoreCycles).AddNewtonsoftJson();
 builder.Services.AddScoped<ICategoriaRepository, CategoriasRepository>();
 builder.Services.AddScoped<IProdutosRepository, ProdutosRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
