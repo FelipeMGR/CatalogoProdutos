@@ -8,6 +8,8 @@ using APICatalogo.DTO_s;
 using APICatalogo.DTO_s.Mapping;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
+using APICatalogo.Pagination;
+using Newtonsoft.Json;
 
 namespace APICatalogo.Controllers
 {
@@ -24,6 +26,25 @@ namespace APICatalogo.Controllers
             _logger = logger;
             _uof = uof;
             _mapper = mapper;
+        }
+        [HttpGet("Pagination")]
+        public ActionResult<IEnumerable<ProdutosDTO>> Get([FromQuery]ProdutosParameters produtosParams)
+        {
+            var produtos = _uof.ProdutosRepository.GetProdutos(produtosParams);
+
+            var metadata = new
+            {
+                produtos.Count,
+                produtos.CurrentPage,
+                produtos.PageSize,
+                produtos.HasNext,
+                produtos.HasPrevious,
+                produtos.TotalPages
+            };
+            Response.Headers.Append("X-Pagination: ", JsonConvert.SerializeObject(metadata));
+            var produtosDTO = _mapper.Map<IEnumerable<ProdutosDTO>>(produtos);
+
+            return Ok(produtosDTO);
         }
 
         [HttpGet("produtos/{id}")]
@@ -42,7 +63,7 @@ namespace APICatalogo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<ProdutosDTO>> Get()
         {
-            var produtos = _uof.ProdutosRepository.GetAll().Where(p => p.Id <= 6).ToList();
+            var produtos = _uof.ProdutosRepository.GetAll().ToList();
 
             if (produtos is null)
             {
@@ -68,6 +89,7 @@ namespace APICatalogo.Controllers
             return Ok(prod);
 
         }
+
         [HttpPatch("{id}/PartialUpdate")]
         public ActionResult<ProdutosDTO> Patch(int id, JsonPatchDocument<ProdutosDTOUpdateRequest> patchDocument)
         {
@@ -81,7 +103,7 @@ namespace APICatalogo.Controllers
 
             patchDocument.ApplyTo(produtoUpdateRequestDTO, ModelState);
 
-            if(!ModelState.IsValid)
+            if(!ModelState.IsValid || TryValidateModel(produtoUpdateRequestDTO))
             {
                 return BadRequest();
             }
