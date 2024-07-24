@@ -30,7 +30,7 @@ namespace APICatalogo.DTO_s
             };
         }
 
-        public static IEnumerable<CategoriaDTO> ToEnumrableDTO(this IEnumerable<Categoria> categorias)
+        public static IEnumerable<CategoriaDTO> ToEnumerableDTO(this IEnumerable<Categoria> categorias)
         {
             if (categorias is null || !categorias.Any())
             {

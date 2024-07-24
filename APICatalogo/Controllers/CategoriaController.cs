@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using APICatalogo.DTO_s;
+using AutoMapper;
+using APICatalogo.Pagination;
+using Newtonsoft.Json;
 
 namespace APICatalogo.Controllers
 {
@@ -17,6 +20,7 @@ namespace APICatalogo.Controllers
     {
         private readonly IUnitOfWork _uof;
         private readonly ILogger<CategoriaController> _logger;
+        private IMapper _mapper;
 
         public CategoriaController(ILogger<CategoriaController> logger, IUnitOfWork uof)
         {
@@ -31,8 +35,28 @@ namespace APICatalogo.Controllers
             if (cat is null)
                 return BadRequest("Categoria n]ao encontrada.");
           
-            var categorias = cat.ToEnumrableDTO();
+            var categorias = _mapper.Map<CategoriaDTO>(cat);
             return Ok(categorias);
+        }
+        [HttpGet("Pagination")]
+        public ActionResult<IEnumerable<CategoriaDTO>> GetCategoria(CategoriaParameters parameters)
+        {
+            var categorias = _uof.CategoriaRepository.GetCategorias(parameters);
+
+            var metadata = new
+            {
+                categorias.Count,
+                categorias.CurrentPage,
+                categorias.PageSize,
+                categorias.HasNext,
+                categorias.HasPrevious,
+                categorias.TotalPages
+            };
+            Response.Headers.Append("X-Pagination: ", JsonConvert.SerializeObject(metadata));
+
+            var categoriasDTO = categorias.ToEnumerableDTO();
+
+            return Ok(categoriasDTO);
         }
 
         [HttpGet("{id:int}", Name = "ObterCategoria")]
