@@ -36,6 +36,7 @@ namespace APICatalogo.Services
             //as variaveis acima trabalham juntas para criar o token de acesso, ambas são necessárias para a criação dele.
             return token;
         }
+
         //classe responsável pela atualização do token de acesso, fazendo com o que o usuário não precise informar suas credencias novamente.
         public string GenerateRefreshToken()
         {
