@@ -21,19 +21,60 @@ namespace APICatalogo.Controllers
         //lida com os dados do usuario.
         private readonly UserManager<ApplicationUser> _userManager;
         //lida com os perfis definidos na API.
-        private readonly RoleManager<ApplicationUser> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         //lida com as informações especificadas no appsetings.json
         private readonly IConfiguration _configuration;
+        private readonly ILogger<AuthController> _logger;
 
-        public AuthController(ITokenService tokenService, 
-                              UserManager<ApplicationUser> userManager, 
-                              RoleManager<ApplicationUser> roleManager, 
-                              IConfiguration configuration)
+        public AuthController(ITokenService tokenService,
+                              UserManager<ApplicationUser> userManager,
+                              RoleManager<IdentityRole> roleManager,
+                              IConfiguration configuration,
+                              ILogger<AuthController> logger)
         {
             _tokenService = tokenService;
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
+            _logger = logger;
+        }
+
+        [HttpPost]
+        [Route("Create-role")]
+        public async Task<IActionResult> CreateRole(string roleName)
+        {
+            var roleExists = await _roleManager.RoleExistsAsync(roleName);
+
+            if (!roleExists)
+            {
+                var roleResult = await _roleManager.CreateAsync(new IdentityRole(roleName));
+
+                if (roleResult.Succeeded)
+                {
+                    _logger.LogInformation(1, "Função adicionada!");
+                    return StatusCode(StatusCodes.Status200OK, new Response
+                    {
+                        Status = "Sucesso",
+                        Message = $"A função {roleName} foi adiciona com sucesso!"
+                    });
+                }
+
+                else
+                {
+                    _logger.LogInformation(2, "Erro");
+                    return StatusCode(StatusCodes.Status500InternalServerError, new Response
+                    {
+                        Status = "Falhou",
+                        Message = $"Houve uma falha na criação da função {roleName}"
+                    });
+                }
+            }
+
+            return StatusCode(StatusCodes.Status400BadRequest, new Response
+            {
+                Status = "Falhou",
+                Message = "A função já existe"
+            });
         }
 
         [HttpPost]
