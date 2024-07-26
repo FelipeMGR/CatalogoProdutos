@@ -1,6 +1,7 @@
 ﻿using APICatalogo.DTO_s;
 using APICatalogo.Models;
 using APICatalogo.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -104,7 +105,6 @@ namespace APICatalogo.Controllers
             {
                 UserName = registerDTO.Login,
                 Email = registerDTO.Email,
-                //age como se fosse a senha do usuário.
                 SecurityStamp = Guid.NewGuid().ToString(),
             };
 
@@ -123,6 +123,64 @@ namespace APICatalogo.Controllers
                 Status = "Succeeded",
                 Message = "Criação de usuário concluída!"
             });
+        }
+
+        [HttpPost]
+        [Route("refresh-token")]
+        public async Task<IActionResult> RefreshToken(TokenModel model)
+        {
+            if (model == null)
+            {
+                return BadRequest("Requisição inválida.");
+            }
+
+            var acessToken = model.AcessToken ?? throw new ArgumentNullException(nameof(TokenModel));
+            var refreshToken = model.RefreshToken ?? throw new ArgumentNullException(nameof(TokenModel));
+
+            var principal = _tokenService.GetPrincipalFromExpiredToken(acessToken!, _configuration);
+
+            if (principal == null)
+            {
+                return BadRequest("Requisição inválida / Token inválido");
+            }
+
+            string? userName = principal.Identity.Name;
+
+            var user = await _userManager.FindByNameAsync(userName!);
+
+            if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpireTime
+                < DateTime.UtcNow)
+            {
+                return BadRequest("Requisição inválida");
+            }
+
+            var newAcessToken = _tokenService.GenerateAccessToken(principal.Claims.ToList(), _configuration);
+            var newRefreshToken = _tokenService.GenerateRefreshToken();
+
+            user.RefreshToken = newRefreshToken;
+            await _userManager.UpdateAsync(user);
+
+            return new ObjectResult(new
+            {
+                acessToken = new JwtSecurityTokenHandler().WriteToken(newAcessToken),
+                refreshToken = newRefreshToken
+            });
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Revoke(string userName)
+        {
+            var user = await _userManager.FindByNameAsync(userName);
+
+            if (user == null)
+            {
+                return BadRequest("O usuário não existe");
+            }
+
+            user.RefreshToken = null;
+
+            return NoContent();
         }
     }
 }
