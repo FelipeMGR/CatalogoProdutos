@@ -11,6 +11,7 @@ using APICatalogo.DTO_s;
 using AutoMapper;
 using APICatalogo.Pagination;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace APICatalogo.Controllers
 {
@@ -28,12 +29,13 @@ namespace APICatalogo.Controllers
             _uof = uof;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<CategoriaDTO>> Get()
         {
             var cat = _uof.CategoriaRepository.GetAll();
             if (cat is null)
-                return BadRequest("Categoria n]ao encontrada.");
+                return BadRequest("Categoria não encontrada.");
           
             var categorias = _mapper.Map<CategoriaDTO>(cat);
             return Ok(categorias);

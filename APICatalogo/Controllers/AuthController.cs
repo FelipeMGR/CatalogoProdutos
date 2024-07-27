@@ -2,10 +2,8 @@
 using APICatalogo.Models;
 using APICatalogo.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.JsonWebTokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
@@ -39,6 +37,43 @@ namespace APICatalogo.Controllers
             _logger = logger;
         }
 
+        //[Authorize]
+        [HttpPost]
+        [Route("Add-to-role")]
+        public async Task<IActionResult> AttributeRole(string email, string roleName)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user != null)
+            {
+                var userRole = await _userManager.AddToRoleAsync(user, roleName);
+
+                if (userRole.Succeeded)
+                {
+                    _logger.LogInformation(1, $"O usuário {user.UserName} foi adiciona à função {roleName}");
+
+                    return StatusCode(StatusCodes.Status200OK, new Response
+                    {
+                        Status = "Sucesso",
+                        Message = $"O usuário {user.UserName} foi adicionado à função {roleName}"
+                    });
+                }
+                else
+                {
+                    _logger.LogInformation(1, $"Houve uma falha ao atribuir o usuário {user.UserName} à função de {roleName}");
+
+                    return StatusCode(StatusCodes.Status500InternalServerError, new Response
+                    {
+                        Status = "Falhou",
+                        Message = $"Houve uma falha ao atribuir o usuário {user.UserName} à função de {roleName}"
+                    });
+                }
+            }
+
+            return BadRequest("Usuário não encontrado.");
+        }
+
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPost]
         [Route("Create-role")]
         public async Task<IActionResult> CreateRole(string roleName)
@@ -82,7 +117,7 @@ namespace APICatalogo.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModelDTO loginModel)
         {
             //identifica o usuario que está realizando o login. A busca é feita através do nome.
-            var user = await _userManager.FindByNameAsync(loginModel.Login!);
+            var user = await _userManager.FindByNameAsync(loginModel.Username!);
 
             if (user is not null && await _userManager.CheckPasswordAsync(user, loginModel.Password!))
             {
@@ -131,7 +166,7 @@ namespace APICatalogo.Controllers
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterModelDTO registerDTO)
         {
-            var userExists = _userManager.FindByEmailAsync(registerDTO.Login!);
+            var userExists = await _userManager.FindByEmailAsync(registerDTO.Login!);
 
             if (userExists != null)
             {
@@ -149,7 +184,7 @@ namespace APICatalogo.Controllers
                 SecurityStamp = Guid.NewGuid().ToString(),
             };
 
-            var result = await _userManager.CreateAsync(user);
+            var result = await _userManager.CreateAsync(user, registerDTO.Password);
 
             if (!result.Succeeded)
             {

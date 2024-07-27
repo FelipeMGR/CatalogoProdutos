@@ -56,6 +56,7 @@ builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;//Verifica se o token informado é válido
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;//Se o token for inválido, ou não for informado, serão pedidas as credencias do usuário.
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
     options.SaveToken = true;
@@ -77,8 +78,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>().
     AddEntityFrameworkStores<AppDbContext>().
     AddDefaultTokenProviders();
 
-builder.Services.AddAuthentication();
-builder.Services.AddAuthentication("Bearer").AddJwtBearer();
+
 var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddScoped<ApiLoggingFilter>();
@@ -108,6 +108,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

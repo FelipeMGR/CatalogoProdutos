@@ -71,6 +71,7 @@ namespace APICatalogo.Controllers
             return Ok(produtosDto);
         }
 
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpGet]
         public ActionResult<IEnumerable<ProdutosDTO>> Get()
         {
