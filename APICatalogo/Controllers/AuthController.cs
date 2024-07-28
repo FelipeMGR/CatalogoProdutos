@@ -129,6 +129,7 @@ namespace APICatalogo.Controllers
                 {
                     new Claim(ClaimTypes.Name, user.UserName!),
                     new Claim(ClaimTypes.Email, user.Email!),
+                    new Claim("Role", "ProjectManager"),
                     //atribui um código de identificação único ao token.
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };

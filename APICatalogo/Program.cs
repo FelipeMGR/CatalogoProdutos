@@ -74,6 +74,16 @@ builder.Services.AddAuthentication(options =>
     };
 }
 );
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("DevOnly", policy => policy.RequireRole("Developer"));
+    options.AddPolicy("GuestOnly", policy => policy.RequireRole("Guest"));
+    options.AddPolicy("ManagerOnly", policy => policy.RequireRole("ProjectManager"));
+    options.AddPolicy("ManagementePerm", policy => policy.RequireAssertion(context =>
+                       context.User.HasClaim("Role", "ProjectManager") || context.User.IsInRole("Admin")));
+});
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().
     AddEntityFrameworkStores<AppDbContext>().
     AddDefaultTokenProviders();
