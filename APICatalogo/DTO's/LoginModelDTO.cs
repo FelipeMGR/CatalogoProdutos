@@ -9,5 +9,8 @@ namespace APICatalogo.DTO_s
 
         [Required(ErrorMessage = "Informe sua senha!")]
         public string? Password { get; set; }
+
+        [Required(ErrorMessage = "Informe sua função.")]
+        public string? Role { get; set; }
     }
 }

@@ -37,8 +37,10 @@ namespace APICatalogo.Controllers
             _logger = logger;
         }
 
-        //[Authorize]
+       
+        
         [HttpPost]
+        [Authorize(Policy = "ManagerOnly")]
         [Route("Add-to-role")]
         public async Task<IActionResult> AttributeRole(string email, string roleName)
         {
@@ -59,6 +61,7 @@ namespace APICatalogo.Controllers
                     });
                 }
                 else
+                
                 {
                     _logger.LogInformation(1, $"Houve uma falha ao atribuir o usuário {user.UserName} à função de {roleName}");
 
@@ -73,8 +76,9 @@ namespace APICatalogo.Controllers
             return BadRequest("Usuário não encontrado.");
         }
 
-        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPost]
+       
+        [Authorize(Policy = "AdminOnly")]
         [Route("Create-role")]
         public async Task<IActionResult> CreateRole(string roleName)
         {
@@ -129,7 +133,7 @@ namespace APICatalogo.Controllers
                 {
                     new Claim(ClaimTypes.Name, user.UserName!),
                     new Claim(ClaimTypes.Email, user.Email!),
-                    new Claim("Role", "ProjectManager"),
+                    new Claim("id", user.UserName!),
                     //atribui um código de identificação único ao token.
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
@@ -182,10 +186,11 @@ namespace APICatalogo.Controllers
             {
                 UserName = registerDTO.Login,
                 Email = registerDTO.Email,
+                PasswordHash = registerDTO.Password,
                 SecurityStamp = Guid.NewGuid().ToString(),
             };
 
-            var result = await _userManager.CreateAsync(user, registerDTO.Password);
+            var result = await _userManager.CreateAsync(user, registerDTO.Password!);
 
             if (!result.Succeeded)
             {
@@ -226,7 +231,7 @@ namespace APICatalogo.Controllers
             var user = await _userManager.FindByNameAsync(userName!);
 
             if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpireTime
-                < DateTime.UtcNow)
+                < DateTime.Now)
             {
                 return BadRequest("Requisição inválida");
             }
@@ -244,7 +249,8 @@ namespace APICatalogo.Controllers
             });
         }
 
-        [Authorize]
+        [Authorize(Policy = "ManagerOnly")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPost]
         public async Task<IActionResult> Revoke(string userName)
         {

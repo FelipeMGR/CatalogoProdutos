@@ -71,7 +71,7 @@ namespace APICatalogo.Controllers
             return Ok(produtosDto);
         }
 
-        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "GuestOnly")]
         [HttpGet]
         public ActionResult<IEnumerable<ProdutosDTO>> Get()
         {
@@ -127,7 +127,7 @@ namespace APICatalogo.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Policy = "AdminOnly")]
         public ActionResult<ProdutosDTO> Post(ProdutosDTO produtoPost)
         {
 
@@ -160,7 +160,7 @@ namespace APICatalogo.Controllers
             return Ok(produtoDto);
 
         }
-
+        [Authorize(Policy = "AdminOnly")]
         [HttpDelete]
         public ActionResult<ProdutosDTO> Delete(ProdutosDTO produto)
         {
