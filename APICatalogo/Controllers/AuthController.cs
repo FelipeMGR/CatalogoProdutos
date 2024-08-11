@@ -38,9 +38,15 @@ namespace APICatalogo.Controllers
         }
 
        
-        
+        /// <summary>
+        /// Atribui uma role/função a um usuário. O usuário é informado de acordo com o email passado no body do request
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="roleName"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Policy = "ManagerOnly")]
+       //[Authorize(AuthenticationSchemes = "Bearer")]
         [Route("Add-to-role")]
         public async Task<IActionResult> AttributeRole(string email, string roleName)
         {
@@ -76,8 +82,12 @@ namespace APICatalogo.Controllers
             return BadRequest("Usuário não encontrado.");
         }
 
+        /// <summary>
+        /// Cria uma nova role/função.
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <returns>Código de status 200</returns>
         [HttpPost]
-       
         [Authorize(Policy = "AdminOnly")]
         [Route("Create-role")]
         public async Task<IActionResult> CreateRole(string roleName)
@@ -115,7 +125,12 @@ namespace APICatalogo.Controllers
                 Message = "A função já existe"
             });
         }
-
+       
+        /// <summary>
+        /// // Faz o login de um usuário já existente e atribui um token de acesso JWT à ele, e um refreshToken.
+        /// </summary>
+        /// <param name="loginModel"></param>
+        /// 
         [HttpPost]
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginModelDTO loginModel)
@@ -133,7 +148,7 @@ namespace APICatalogo.Controllers
                 {
                     new Claim(ClaimTypes.Name, user.UserName!),
                     new Claim(ClaimTypes.Email, user.Email!),
-                    new Claim("id", user.UserName!),
+                    //new Claim("id", user.UserName!),
                     //atribui um código de identificação único ao token.
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
@@ -166,7 +181,11 @@ namespace APICatalogo.Controllers
             }
             return Unauthorized();
         }
-
+        
+        /// <summary>
+        /// // Registra um novo usuário
+        /// </summary>
+        /// <param name="registerDTO"></param>
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterModelDTO registerDTO)

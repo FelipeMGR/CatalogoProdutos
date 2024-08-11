@@ -26,10 +26,9 @@ namespace APICatalogo.Services
                 //esta seção especifica as informações que serão validadas pelo token
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddMinutes(_config.GetSection("JWT").GetValue<double>("TokenValidInMinutes")),
-
-                Audience = _config.GetSection("JWT").GetValue<string>("Audience"),
-                Issuer = _config.GetSection("JWT").GetValue<string>("Issuer"),
-                SigningCredentials = signingCredential,
+                Audience = _config.GetSection("JWT").GetValue<string>("ValidAudience"),
+                Issuer = _config.GetSection("JWT").GetValue<string>("ValidIssuer"),
+                SigningCredentials = signingCredential
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateJwtSecurityToken(tokenDescriptor);

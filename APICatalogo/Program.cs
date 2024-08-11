@@ -2,16 +2,20 @@ using APICatalogo.Context;
 using APICatalogo.DTO_s.Mapping;
 using APICatalogo.Filters;
 using APICatalogo.Models;
+using APICatalogo.MyRateLimitOptions;
 using APICatalogo.Repositories;
 using APICatalogo.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +27,22 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
     builder.Services.AddSwaggerGen(c =>
     {
-        c.SwaggerDoc("v1", new OpenApiInfo { Title = "APICatalogo", Version = "v1" });
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Version = "v1",
+            Title = "APICatalogo",
+            Description = "API para registro e controle de estoque",
+            Contact = new OpenApiContact
+            {
+                Name = "FelipeMGR",
+                Email = "felipematheusgr18@gmail.com"
+            }
+        });
+
+        var xmlFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+        c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFileName));
+
+        //c.SwaggerDoc("v1", new OpenApiInfo { Title = "APICatalogo", Version = "v1" });
         c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
         {
             Name = "Authorization",
@@ -84,10 +103,41 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("ManagerOnly", policy => policy.RequireRole("ProjectManager"));
 });
 
+var myOptions = new MyRateLimitOptions();
+builder.Configuration.GetSection(MyRateLimitOptions.MyRateLimit).Bind(myOptions);
+
+builder.Services.AddRateLimiter(rateLimitOptions =>
+{
+rateLimitOptions.AddFixedWindowLimiter(
+        policyName: "fixedWindow", options =>
+        {
+            // número máximo de requisições que podem ser feitas
+            options.PermitLimit = myOptions.PermitLimit;
+            // ordem de processamento das requisições
+            options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+            // pega a config feita na classe, para definir o tempo entre uma janela e outra
+            options.Window = TimeSpan.FromSeconds(myOptions.Window);
+            // define o número máximo de requisições que podem ser colocadas em fila de espera
+            // serão atendidas após o tempo da janela ter passado.
+            options.QueueLimit = myOptions.QueueLimit;
+        });
+    rateLimitOptions.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+});
+
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().
     AddEntityFrameworkStores<AppDbContext>().
     AddDefaultTokenProviders();
 
+var OrigensPermitidas = "_origensPermitidas";
+builder.Services.AddCors(
+    options => options.AddPolicy("_origensPermitidas",
+    policy =>
+             {
+                 policy.WithOrigins("http://localhost:xxxx")
+                 .AllowAnyHeader()
+                 .AllowCredentials();
+             }
+             ));
 
 var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -117,7 +167,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseStaticFiles();
+app.UseRouting();
+app.UseCors();
+//app.UseApiLoggigFilter();
 app.UseAuthentication();
 app.UseAuthorization();
 

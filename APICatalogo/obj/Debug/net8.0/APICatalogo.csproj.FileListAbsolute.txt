@@ -334,3 +334,5 @@ C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\bin\Debug\net8.0\Microso
 C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\bin\Debug\net8.0\APICatalogo.xml
+C:\Users\felip\OneDrive\Documents\Macoratti\APICatalogo\obj\Debug\net8.0\APICatalogo.xml

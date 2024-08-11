@@ -11,9 +11,12 @@ using Microsoft.AspNetCore.JsonPatch;
 using APICatalogo.Pagination;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Cors;
 
 namespace APICatalogo.Controllers
 {
+    [EnableCors]
     [Route("[controller]")]
     [ApiController]
     public class ProdutosController : Controller
@@ -35,6 +38,11 @@ namespace APICatalogo.Controllers
             return ObterProduto(produtos);
         }
 
+        /// <summary>
+        /// Obtém os produtos baseados no filtro realizado.
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns>Código de status 200</returns>
         [HttpGet("filtros/preco/pagination")]
         public ActionResult<IEnumerable<ProdutosDTO>> GetFiltros([FromQuery] ProdutosFiltroPreco param)
         {
@@ -58,6 +66,7 @@ namespace APICatalogo.Controllers
             return Ok(produtosDTO);
         }
 
+        [DisableCors]
         [HttpGet("produtos/{id}")]
         public ActionResult<IEnumerable<ProdutosDTO>> GetPorCategoria(int id)
         {
@@ -71,7 +80,7 @@ namespace APICatalogo.Controllers
             return Ok(produtosDto);
         }
 
-        [Authorize(Policy = "GuestOnly")]
+        ///[Authorize(Policy = "GuestOnly")]
         [HttpGet]
         public ActionResult<IEnumerable<ProdutosDTO>> Get()
         {
@@ -126,6 +135,11 @@ namespace APICatalogo.Controllers
             return Ok(_mapper.Map<ProdutosDTO>(produto));
         }
 
+        /// <summary>
+        /// //Cria um novo produto
+        /// </summary>
+        /// <param name="produtoPost"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Policy = "AdminOnly")]
         public ActionResult<ProdutosDTO> Post(ProdutosDTO produtoPost)
